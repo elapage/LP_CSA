@@ -12,16 +12,26 @@ public class SumDigits
     {
         Scanner scanner = new Scanner(System.in);
         int input;  //the number being input
-        int currNumber;
-        int sum = 0;
+        int sum;
 
         //take in a number from the user
         System.out.print("Enter a positive integer number: ");
         input = scanner.nextInt();
 
-        //the currNumber starts as the input and will have digits removed
-        //from it from right to left
-        currNumber = input;
+        //calculate the sum of the digits
+        sum = calculateSum(input);
+
+        System.out.println("The sum of the digits in " + input + " = " + sum);
+    }
+
+    /**
+     * Calculates the sum of the given integer
+     * @param currNumber the inputted value
+     * @return the sum of the digits in the number
+     */
+    public static int calculateSum(int currNumber)
+    {
+        int sum = 0;
 
         //find each digit until there aren't any digits in the number!
         while(currNumber > 0)
@@ -33,6 +43,6 @@ public class SumDigits
             currNumber /= 10;
         }
 
-        System.out.println("The sum of the digits in " + input + " = " + sum);
+        return sum;
     }
 }
