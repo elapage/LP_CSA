@@ -86,16 +86,31 @@ public class Card
     }
 
     /**
-     * Compares two cards together using solely their rank
+     * Compares two cards together, first by suit, then
+     * by rank
      * 
      * @param other the other Card
-     * @return a number < 0 if other's rank is > this rank
-     *         a number > 0 if other's rank is < this rank
+     * @return a number < 0 if other > this
+     *         a number > 0 if other < this
      *         0 if this rank = other rank
      */
     public int compareTo(Card other)
     {
-        return this.rank - other.rank;
+        int value = 0;
+
+        if(this.suit == other.getSuit())
+        {
+            //if equal suits, compare by rank
+            value =  this.rank - other.rank;
+        }
+        else
+        {
+            //if not equal, compare by suit
+            //(C < D < H < S)
+            value = (int)this.suit - (int)other.suit;
+        }
+
+        return value;
     }
     
     /**

@@ -18,6 +18,7 @@ public class CardClassDriver
         System.out.println(c1);
         System.out.println(c2); 
         
+        //compares two cards together
         System.out.println(c1.compareTo(c2));
     }
 }
