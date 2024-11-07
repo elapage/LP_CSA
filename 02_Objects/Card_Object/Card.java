@@ -127,4 +127,11 @@ public class Card
             return "" + suit + convertRank();
         }
     }  
+
+    public char redOrBlack()
+    {
+        //dummy method
+        System.out.println("In red/black method");
+        return ' ';
+    }
 }
