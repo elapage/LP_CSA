@@ -7,7 +7,8 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.io.*;
 
-public class Pack2016Problem3 {
+public class Pack2016Problem3
+{
     
     public static void main(String [] args)
     { 
@@ -15,9 +16,33 @@ public class Pack2016Problem3 {
         int numCases;
 
         //because we are dealing with files, we are required to use a try-catch for the exception
-        // to be completed in class!     
+        // to be completed in class!   
+        try
+        {
+            //use System.in for contests
+            //scanner = new Scanner(System.in);
+            //use a file for assignments - make sure it is in the
+            //same directory as your class
+            scanner = new Scanner(new File("input1.txt"));
+            while(scanner.hasNextLine())
+            {
+                //get the number of cases
+                numCases = Integer.parseInt(scanner.nextLine());
 
-        System.out.println("Program terminated");
+                for(int i = 1; i <= numCases; i++)
+                {
+                    runCases(i, scanner);
+                }
+            }
+        }  
+        catch(Exception e)
+        {
+            System.out.println("oopsie file problem");
+            System.out.println(e.toString());
+            e.printStackTrace();
+        }
+
+        //System.out.println("Program terminated");
     }
 
     public static void runCases(int caseNumber, Scanner scanner)
@@ -43,7 +68,7 @@ public class Pack2016Problem3 {
             //display output
             output(caseNumber, smallerThanPivot, greaterThanPivot);
         }
-        catch(IOException ioe)
+        catch(Exception ioe)
         {
             System.out.println("Problem with reading a line");
             ioe.printStackTrace();
@@ -129,6 +154,15 @@ public class Pack2016Problem3 {
      */
     public static int [] getInfo(String input)
     {
-        // to be completed in class!
+        //use all whitespace as the delimiter when tokenizing the input string
+        String [] tokens = input.trim().split("\\s+");
+        int [] info = new int[tokens.length];
+
+        for(int i = 0; i<tokens.length; i++)
+        {
+            info[i] = Integer.parseInt(tokens[i]);
+        }
+
+        return info;
     }
 }
