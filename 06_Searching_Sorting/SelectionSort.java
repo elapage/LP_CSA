@@ -44,6 +44,30 @@
 
      public static void sort(int [] data)
      {
+        //loop through the list
+        for(int i = 0; i < data.length - 1; i++)
+        {
+            int minPos = i;  //assume that the current element is the smallest; 
 
+            //loop through the remaining list and find out if the current element is
+            //the smallest element in the list; if not, swap
+            for(int j = i + 1; j < data.length; j++)
+            {
+                //check which one is smallest
+                if(data[j] < data[minPos])
+                {
+                    minPos = j;
+                }
+            }
+
+            //swap
+            if(i != minPos)
+            {
+                int temp = data[i];
+                data[i] = data[minPos];
+                data[minPos] = temp;
+            }
+
+        }
      }
  }
